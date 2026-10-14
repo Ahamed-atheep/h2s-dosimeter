@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  # FastAPI ML & Computer Vision Backend Server
+  backend:
+    build:
+      context: ./h2s-camera-solution
+      dockerfile: Dockerfile
+    container_name: h2s-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:////app/data/dosimeter_records.db
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./h2s-camera-solution/data:/app/data
+      - ./h2s-camera-solution/images:/app/images
+      - ./h2s-camera-solution/results:/app/results
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  # Universal Web Dashboard / Expo Web Client
+  web-client:
+    build:
+      context: ./h2s-mobile-app
+      dockerfile: Dockerfile.web
+    container_name: h2s-web-client
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+networks:
+  default:
+    name: h2s-network

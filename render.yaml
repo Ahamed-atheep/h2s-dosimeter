@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: h2s-dosimeter-api
+    env: python
+    rootDir: h2s-camera-solution
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn src.backend.api:app --host 0.0.0.0 --port $PORT
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9

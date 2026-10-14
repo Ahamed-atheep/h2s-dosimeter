@@ -1,0 +1,36 @@
+{
+  "model_type": "xgboost",
+  "model_file": "best_model.joblib",
+  "test_dataset": "test_features.csv",
+  "n_test_samples": 1004,
+  "overall_metrics": {
+    "MAE_ppm_h": 0.9707,
+    "RMSE_ppm_h": 1.9947,
+    "R2_score": 0.9854,
+    "Median_Absolute_Error_ppm_h": 0.3683,
+    "Max_Absolute_Error_ppm_h": 17.6114
+  },
+  "dose_tier_breakdown": {
+    "low_dose_under_5_ppm_h": {
+      "name": "Low Dose (<5 ppm*h)",
+      "count": 361,
+      "mae": 0.21694141626358032,
+      "rmse": 0.2726665437221527,
+      "mean_relative_error_pct": 14.99736499786377
+    },
+    "medium_dose_5_to_20_ppm_h": {
+      "name": "Medium Dose (5-20 ppm*h)",
+      "count": 432,
+      "mae": 0.6745514869689941,
+      "rmse": 0.934072732925415,
+      "mean_relative_error_pct": 6.074405670166016
+    },
+    "high_dose_over_20_ppm_h": {
+      "name": "High Dose (>20 ppm*h)",
+      "count": 211,
+      "mae": 2.8665847778320312,
+      "rmse": 4.125363826751709,
+      "mean_relative_error_pct": 7.053028106689453
+    }
+  }
+}

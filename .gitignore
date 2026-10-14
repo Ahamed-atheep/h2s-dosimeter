@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# Node & Expo
+node_modules/
+.expo/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Debug output images (keep directory structure)
+h2s-camera-solution/images/debug/*
+!h2s-camera-solution/images/debug/.gitkeep

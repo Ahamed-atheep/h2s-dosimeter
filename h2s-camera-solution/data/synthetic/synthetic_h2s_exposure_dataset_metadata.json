@@ -1,0 +1,10 @@
+{
+  "is_synthetic": true,
+  "pipeline_extracted": true,
+  "n_samples": 5000,
+  "failed": 0,
+  "dose_range_ppm_h": [
+    0.055,
+    84.99
+  ]
+}
